@@ -45,59 +45,28 @@ const DebtCollectionTable = () => {
     {
       field: 'taxOfficeCode',
       headerName: 'Код НО (заявление)',
-      width: 140,
+      width: 150,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
-        <Chip 
-          label={params.value} 
-          size="small" 
-          variant="outlined"
-          sx={{ 
-            fontSize: '0.75rem',
-            height: 24,
-            borderColor: 'divider',
-          }}
-        />
+        <Chip label={params.value} size="small" variant="outlined" />
       ),
     },
     {
       field: 'currentTaxOfficeCode',
       headerName: 'Текущий Код НО',
-      width: 130,
+      width: 140,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
-        <Chip 
-          label={params.value} 
-          size="small" 
-          variant="outlined"
-          sx={{ 
-            fontSize: '0.75rem',
-            height: 24,
-            borderColor: 'divider',
-          }}
-        />
+        <Chip label={params.value} size="small" variant="outlined" />
       ),
     },
     {
       field: 'inn',
       headerName: 'ИНН',
-      width: 130,
+      width: 140,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
-            fontSize: '0.8125rem',
-            fontWeight: 500,
-          }}
-        >
+        <Typography variant="body2" fontFamily="monospace">
           {params.value}
         </Typography>
       ),
@@ -105,78 +74,35 @@ const DebtCollectionTable = () => {
     {
       field: 'registrationCode',
       headerName: 'Код постановки',
-      width: 110,
+      width: 120,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <Chip 
           label={params.value ? '1' : '0'} 
-          color={params.value ? 'success' : 'secondary'}
+          color={params.value ? 'success' : 'default'}
           size="small"
-          sx={{ 
-            fontSize: '0.75rem',
-            height: 24,
-            fontWeight: 600,
-          }}
         />
       ),
     },
     {
       field: 'fullName',
       headerName: 'ФИО',
-      width: 220,
+      width: 200,
       editable: false,
-      headerAlign: 'left',
-      align: 'left',
-      renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontSize: '0.8125rem',
-            fontWeight: 500,
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
     },
     {
       field: 'documentNumber',
       headerName: 'Номер документа',
-      width: 140,
+      width: 150,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
-      renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontSize: '0.8125rem',
-            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
     },
     {
       field: 'documentDate',
       headerName: 'Дата документа',
-      width: 120,
+      width: 130,
       editable: false,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
-        <Typography 
-          variant="body2"
-          sx={{ 
-            fontSize: '0.8125rem',
-            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
-          }}
-        >
+        <Typography variant="body2">
           {new Date(params.value).toLocaleDateString('ru-RU')}
         </Typography>
       ),
@@ -184,39 +110,16 @@ const DebtCollectionTable = () => {
     {
       field: 'documentType',
       headerName: 'Вид документа',
-      width: 200,
+      width: 180,
       editable: false,
-      headerAlign: 'left',
-      align: 'left',
-      renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontSize: '0.8125rem',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
     },
     {
       field: 'documentAmount',
       headerName: 'Сумма по документу',
-      width: 140,
+      width: 150,
       editable: false,
-      headerAlign: 'right',
-      align: 'right',
       renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontWeight: 600,
-            fontSize: '0.8125rem',
-            color: 'text.primary',
-          }}
-        >
+        <Typography variant="body2" fontWeight="medium">
           {params.value?.toLocaleString('ru-RU')} ₽
         </Typography>
       ),
@@ -224,19 +127,10 @@ const DebtCollectionTable = () => {
     {
       field: 'debtBalance',
       headerName: 'Остаток задолженности',
-      width: 160,
+      width: 170,
       editable: false,
-      headerAlign: 'right',
-      align: 'right',
       renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontWeight: 600,
-            fontSize: '0.8125rem',
-            color: 'error.main',
-          }}
-        >
+        <Typography variant="body2" fontWeight="medium" color="error.main">
           {params.value?.toLocaleString('ru-RU')} ₽
         </Typography>
       ),
@@ -244,52 +138,22 @@ const DebtCollectionTable = () => {
     {
       field: 'courtName',
       headerName: 'Наименование суда',
-      width: 220,
+      width: 200,
       editable: false,
-      headerAlign: 'left',
-      align: 'left',
-      renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontSize: '0.8125rem',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
     },
     {
       field: 'courtAddress',
       headerName: 'Адрес суда',
-      width: 220,
+      width: 200,
       editable: false,
-      headerAlign: 'left',
-      align: 'left',
-      renderCell: (params) => (
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontSize: '0.8125rem',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
     },
     
     // Редактируемые столбцы (13-22)
     {
       field: 'courtSentDate',
       headerName: 'Дата отправки в суд',
-      width: 150,
+      width: 160,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -301,10 +165,8 @@ const DebtCollectionTable = () => {
     {
       field: 'noCourtRequired',
       headerName: 'Не требуется направления',
-      width: 170,
+      width: 180,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -322,10 +184,8 @@ const DebtCollectionTable = () => {
     {
       field: 'applicationStatus',
       headerName: 'Статус приема заявления',
-      width: 170,
+      width: 180,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -341,10 +201,8 @@ const DebtCollectionTable = () => {
     {
       field: 'receivedDate',
       headerName: 'Дата получения',
-      width: 130,
+      width: 140,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -356,10 +214,8 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActType',
       headerName: 'Вид судебного акта',
-      width: 170,
+      width: 180,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -379,10 +235,8 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActNumber',
       headerName: 'Номер судебного акта',
-      width: 150,
+      width: 160,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <TextCell
           value={params.value}
@@ -394,10 +248,8 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActDate',
       headerName: 'Дата судебного акта',
-      width: 140,
+      width: 150,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -409,10 +261,8 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActEffectiveDate',
       headerName: 'Дата вступления в силу',
-      width: 160,
+      width: 170,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -424,10 +274,8 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActSentDate',
       headerName: 'Дата направления акта',
-      width: 150,
+      width: 160,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -439,10 +287,8 @@ const DebtCollectionTable = () => {
     {
       field: 'caseReference',
       headerName: 'Ссылка на дело',
-      width: 140,
+      width: 150,
       editable: true,
-      headerAlign: 'center',
-      align: 'center',
       renderCell: (params) => (
         <TextCell
           value={params.value}
@@ -454,74 +300,177 @@ const DebtCollectionTable = () => {
     },
   ];
 
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
-          Заявления о взыскании задолженности
-        </Typography>
-        
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
-          <TextField
-            placeholder="Поиск по ИНН..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            InputProps={{
-              startAdornment: <SearchIcon sx={{ color: 'action.active', mr: 1 }} />,
-            }}
-            sx={{ minWidth: 250 }}
-          />
-          
-          <Button
-            variant="contained"
-            startIcon={<DownloadIcon />}
-            onClick={handleExport}
-            sx={{
-              background: 'linear-gradient(45deg, #4caf50 30%, #66bb6a 90%)',
-              '&:hover': {
-                background: 'linear-gradient(45deg, #43a047 30%, #4caf50 90%)',
-              }
+  return (
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', py: 3 }}>
+      <Paper 
+        elevation={0} 
+        sx={{ 
+          mx: 'auto',
+          maxWidth: '100%',
+          bgcolor: 'background.paper',
+          border: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
+        {/* Header Section */}
+        <Box sx={{ 
+          px: 3, 
+          py: 2.5, 
+          borderBottom: '1px solid', 
+          borderColor: 'divider',
+          bgcolor: '#fafbfc'
+        }}>
+          <Typography 
+            variant="h4" 
+            component="h1" 
+            sx={{ 
+              fontWeight: 600, 
+              color: 'text.primary',
+              mb: 2.5,
+              fontSize: '1.5rem'
             }}
           >
-            Скачать статистику
-          </Button>
+            Заявления о взыскании задолженности
+          </Typography>
+          
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 2,
+            flexWrap: 'wrap'
+          }}>
+            <TextField
+              placeholder="Поиск по ИНН..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              size="small"
+              InputProps={{
+                startAdornment: <SearchIcon sx={{ color: 'text.secondary', mr: 1, fontSize: '1.125rem' }} />,
+              }}
+              sx={{ 
+                minWidth: 280,
+                '& .MuiOutlinedInput-root': {
+                  bgcolor: 'background.paper',
+                  '&:hover': {
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'primary.main',
+                    },
+                  },
+                },
+              }}
+            />
+            
+            <Button
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              onClick={handleExport}
+              sx={{
+                bgcolor: 'primary.main',
+                '&:hover': {
+                  bgcolor: 'primary.dark',
+                },
+                minWidth: 'auto',
+              }}
+            >
+              Скачать статистику
+            </Button>
+          </Box>
         </Box>
-      </Box>
 
-      {Object.keys(validationErrors).length > 0 && (
-        <Alert severity="warning" sx={{ mb: 2 }}>
-          Некоторые обязательные поля не заполнены. Проверьте выделенные ячейки.
-        </Alert>
-      )}
+        {/* Alert Section */}
+        {Object.keys(validationErrors).length > 0 && (
+          <Box sx={{ px: 3, pt: 2 }}>
+            <Alert 
+              severity="warning" 
+              sx={{ 
+                borderRadius: 1,
+                '& .MuiAlert-message': {
+                  fontSize: '0.875rem',
+                },
+              }}
+            >
+              Некоторые обязательные поля не заполнены. Проверьте выделенные ячейки.
+            </Alert>
+          </Box>
+        )}
 
-      <Box sx={{ height: 600, width: '100%' }}>
-        <DataGrid
-          rows={filteredRows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+        {/* Table Section */}
+        <Box sx={{ p: 3 }}>
+          <Box sx={{ 
+            height: 650, 
+            width: '100%',
+            '& .MuiDataGrid-root': {
+              border: '1px solid',
+              borderColor: 'divider',
+              borderRadius: 1,
+              bgcolor: 'background.paper',
             },
-          }}
-          pageSizeOptions={[10, 25, 50]}
-          disableRowSelectionOnClick
-          sx={{
-            '& .MuiDataGrid-cell': {
-              borderColor: '#e0e0e0',
+            '& .MuiDataGrid-main': {
+              '& .MuiDataGrid-columnHeaders': {
+                bgcolor: '#f8fafc',
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                minHeight: '48px !important',
+                '& .MuiDataGrid-columnHeader': {
+                  padding: '0 12px',
+                  '& .MuiDataGrid-columnHeaderTitle': {
+                    fontSize: '0.8125rem',
+                    fontWeight: 600,
+                    color: 'text.primary',
+                    lineHeight: 1.4,
+                  },
+                },
+              },
+              '& .MuiDataGrid-cell': {
+                borderColor: 'divider',
+                padding: '8px 12px',
+                fontSize: '0.8125rem',
+                lineHeight: 1.4,
+                display: 'flex',
+                alignItems: 'center',
+                minHeight: '48px !important',
+              },
+              '& .MuiDataGrid-row': {
+                '&:hover': {
+                  bgcolor: '#f8fafc',
+                },
+                '&.Mui-selected': {
+                  bgcolor: 'rgba(37, 99, 235, 0.04)',
+                  '&:hover': {
+                    bgcolor: 'rgba(37, 99, 235, 0.08)',
+                  },
+                },
+              },
             },
-            '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: '#f5f5f5',
-              fontWeight: 600,
-            },
-            '& .MuiDataGrid-row:hover': {
-              backgroundColor: '#f8f9fa',
+            '& .MuiDataGrid-footerContainer': {
+              borderTop: '1px solid',
+              borderColor: 'divider',
+              bgcolor: '#f8fafc',
+              minHeight: '52px',
             },
             '& .error-cell': {
-              backgroundColor: '#ffebee',
-              border: '1px solid #f44336',
+              bgcolor: '#fef2f2 !important',
+              borderColor: '#fecaca !important',
             },
-          }}
-        />
-      </Box>
-    </Paper>
+          }}>
+            <DataGrid
+              rows={filteredRows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 15 },
+                },
+              }}
+              pageSizeOptions={[15, 25, 50]}
+              disableRowSelectionOnClick
+              disableColumnMenu
+              density="standard"
+            />
+          </Box>
+        </Box>
+      </Paper>
+    </Box>
   );
 };
 
