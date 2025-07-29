@@ -10,25 +10,40 @@ import DebtCollectionTable from './components/DebtCollectionTable';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#2563eb',
     },
     secondary: {
-      main: '#14b8a6',
+      main: '#64748b',
     },
     success: {
-      main: '#4caf50',
+      main: '#10b981',
     },
     warning: {
-      main: '#ff9800',
+      main: '#f59e0b',
     },
     error: {
-      main: '#f44336',
+      main: '#ef4444',
+    },
+    background: {
+      default: '#fafafa',
+      paper: '#ffffff',
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif',
+    fontSize: 14,
     h4: {
       fontWeight: 600,
+      fontSize: '1.75rem',
+      lineHeight: 1.2,
+    },
+    body1: {
+      fontSize: '0.875rem',
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: '0.8125rem',
+      lineHeight: 1.4,
     },
   },
   components: {
@@ -36,14 +51,32 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: 8,
+          borderRadius: 6,
+          fontWeight: 500,
+          fontSize: '0.875rem',
+          padding: '8px 16px',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+          },
         },
       },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
+          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            borderRadius: 6,
+            fontSize: '0.875rem',
+          },
         },
       },
     },

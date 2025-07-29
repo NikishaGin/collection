@@ -25,10 +25,11 @@ const SelectCell = ({ value, options, onChange, error }) => {
     <Box 
       sx={{ 
         width: '100%',
+        minHeight: 32,
         ...(error && {
-          backgroundColor: '#ffebee',
+          backgroundColor: '#fef2f2',
           borderRadius: 1,
-          border: '1px solid #f44336',
+          border: '1px solid #fecaca',
         })
       }}
     >
@@ -48,17 +49,20 @@ const SelectCell = ({ value, options, onChange, error }) => {
                 <IconButton
                   size="small"
                   onClick={handleClear}
-                  sx={{ p: 0.5 }}
+                  sx={{ 
+                    p: 0.5,
+                    '&:hover': { bgcolor: 'action.hover' }
+                  }}
                 >
-                  <Clear fontSize="small" />
+                  <Clear sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                 </IconButton>
               )}
-              <ExpandMore fontSize="small" />
+              <ExpandMore sx={{ fontSize: '1rem', color: 'text.secondary' }} />
             </Box>
           )}
           renderValue={(selected) => {
             if (!selected) {
-              return <span style={{ color: '#999', fontSize: '0.875rem' }}>Выберите...</span>;
+              return <span style={{ color: '#9ca3af', fontSize: '0.8125rem' }}>Выберите...</span>;
             }
             const option = options.find(opt => opt.value === selected);
             return (
@@ -66,20 +70,28 @@ const SelectCell = ({ value, options, onChange, error }) => {
                 label={option?.label || selected} 
                 size="small" 
                 variant="outlined"
-                color="primary"
-                sx={{ height: 24, fontSize: '0.75rem' }}
+                sx={{ 
+                  height: 22, 
+                  fontSize: '0.75rem',
+                  borderColor: 'divider',
+                  bgcolor: 'background.paper',
+                }}
               />
             );
           }}
           sx={{
             '& .MuiSelect-select': {
               padding: '4px 8px',
-              fontSize: '0.875rem',
+              fontSize: '0.8125rem',
             },
           }}
         >
           {options.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem 
+              key={option.value} 
+              value={option.value}
+              sx={{ fontSize: '0.8125rem' }}
+            >
               {option.label}
             </MenuItem>
           ))}

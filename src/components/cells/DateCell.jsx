@@ -27,10 +27,11 @@ const DateCell = ({ value, onChange, error }) => {
           display: 'flex', 
           alignItems: 'center', 
           width: '100%',
+          minHeight: 32,
           ...(error && {
-            backgroundColor: '#ffebee',
+            backgroundColor: '#fef2f2',
             borderRadius: 1,
-            border: '1px solid #f44336',
+            border: '1px solid #fecaca',
           })
         }}
       >
@@ -54,7 +55,8 @@ const DateCell = ({ value, onChange, error }) => {
               sx={{
                 '& .MuiInputBase-input': {
                   padding: '4px 8px',
-                  fontSize: '0.875rem',
+                  fontSize: '0.8125rem',
+                  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
                   cursor: 'pointer',
                 },
               }}
@@ -67,17 +69,23 @@ const DateCell = ({ value, onChange, error }) => {
           <IconButton
             size="small"
             onClick={() => setOpen(true)}
-            sx={{ p: 0.5 }}
+            sx={{ 
+              p: 0.5,
+              '&:hover': { bgcolor: 'action.hover' }
+            }}
           >
-            <CalendarToday fontSize="small" />
+            <CalendarToday sx={{ fontSize: '1rem', color: 'text.secondary' }} />
           </IconButton>
           {value && (
             <IconButton
               size="small"
               onClick={handleClear}
-              sx={{ p: 0.5 }}
+              sx={{ 
+                p: 0.5,
+                '&:hover': { bgcolor: 'action.hover' }
+              }}
             >
-              <Clear fontSize="small" />
+              <Clear sx={{ fontSize: '1rem', color: 'text.secondary' }} />
             </IconButton>
           )}
         </Box>

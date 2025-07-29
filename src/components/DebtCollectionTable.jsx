@@ -45,28 +45,59 @@ const DebtCollectionTable = () => {
     {
       field: 'taxOfficeCode',
       headerName: 'Код НО (заявление)',
-      width: 150,
+      width: 140,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
-        <Chip label={params.value} size="small" variant="outlined" />
+        <Chip 
+          label={params.value} 
+          size="small" 
+          variant="outlined"
+          sx={{ 
+            fontSize: '0.75rem',
+            height: 24,
+            borderColor: 'divider',
+          }}
+        />
       ),
     },
     {
       field: 'currentTaxOfficeCode',
       headerName: 'Текущий Код НО',
-      width: 140,
+      width: 130,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
-        <Chip label={params.value} size="small" variant="outlined" />
+        <Chip 
+          label={params.value} 
+          size="small" 
+          variant="outlined"
+          sx={{ 
+            fontSize: '0.75rem',
+            height: 24,
+            borderColor: 'divider',
+          }}
+        />
       ),
     },
     {
       field: 'inn',
       headerName: 'ИНН',
-      width: 140,
+      width: 130,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
-        <Typography variant="body2" fontFamily="monospace">
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+          }}
+        >
           {params.value}
         </Typography>
       ),
@@ -74,35 +105,78 @@ const DebtCollectionTable = () => {
     {
       field: 'registrationCode',
       headerName: 'Код постановки',
-      width: 120,
+      width: 110,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <Chip 
           label={params.value ? '1' : '0'} 
-          color={params.value ? 'success' : 'default'}
+          color={params.value ? 'success' : 'secondary'}
           size="small"
+          sx={{ 
+            fontSize: '0.75rem',
+            height: 24,
+            fontWeight: 600,
+          }}
         />
       ),
     },
     {
       field: 'fullName',
       headerName: 'ФИО',
-      width: 200,
+      width: 220,
       editable: false,
+      headerAlign: 'left',
+      align: 'left',
+      renderCell: (params) => (
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     {
       field: 'documentNumber',
       headerName: 'Номер документа',
-      width: 150,
+      width: 140,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: (params) => (
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontSize: '0.8125rem',
+            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     {
       field: 'documentDate',
       headerName: 'Дата документа',
-      width: 130,
+      width: 120,
       editable: false,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
-        <Typography variant="body2">
+        <Typography 
+          variant="body2"
+          sx={{ 
+            fontSize: '0.8125rem',
+            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
+          }}
+        >
           {new Date(params.value).toLocaleDateString('ru-RU')}
         </Typography>
       ),
@@ -110,16 +184,39 @@ const DebtCollectionTable = () => {
     {
       field: 'documentType',
       headerName: 'Вид документа',
-      width: 180,
+      width: 200,
       editable: false,
+      headerAlign: 'left',
+      align: 'left',
+      renderCell: (params) => (
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontSize: '0.8125rem',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     {
       field: 'documentAmount',
       headerName: 'Сумма по документу',
-      width: 150,
+      width: 140,
       editable: false,
+      headerAlign: 'right',
+      align: 'right',
       renderCell: (params) => (
-        <Typography variant="body2" fontWeight="medium">
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontWeight: 600,
+            fontSize: '0.8125rem',
+            color: 'text.primary',
+          }}
+        >
           {params.value?.toLocaleString('ru-RU')} ₽
         </Typography>
       ),
@@ -127,10 +224,19 @@ const DebtCollectionTable = () => {
     {
       field: 'debtBalance',
       headerName: 'Остаток задолженности',
-      width: 170,
+      width: 160,
       editable: false,
+      headerAlign: 'right',
+      align: 'right',
       renderCell: (params) => (
-        <Typography variant="body2" fontWeight="medium" color="error.main">
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontWeight: 600,
+            fontSize: '0.8125rem',
+            color: 'error.main',
+          }}
+        >
           {params.value?.toLocaleString('ru-RU')} ₽
         </Typography>
       ),
@@ -138,22 +244,52 @@ const DebtCollectionTable = () => {
     {
       field: 'courtName',
       headerName: 'Наименование суда',
-      width: 200,
+      width: 220,
       editable: false,
+      headerAlign: 'left',
+      align: 'left',
+      renderCell: (params) => (
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontSize: '0.8125rem',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     {
       field: 'courtAddress',
       headerName: 'Адрес суда',
-      width: 200,
+      width: 220,
       editable: false,
+      headerAlign: 'left',
+      align: 'left',
+      renderCell: (params) => (
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontSize: '0.8125rem',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {params.value}
+        </Typography>
+      ),
     },
     
     // Редактируемые столбцы (13-22)
     {
       field: 'courtSentDate',
       headerName: 'Дата отправки в суд',
-      width: 160,
+      width: 150,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -165,8 +301,10 @@ const DebtCollectionTable = () => {
     {
       field: 'noCourtRequired',
       headerName: 'Не требуется направления',
-      width: 180,
+      width: 170,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -184,8 +322,10 @@ const DebtCollectionTable = () => {
     {
       field: 'applicationStatus',
       headerName: 'Статус приема заявления',
-      width: 180,
+      width: 170,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -201,8 +341,10 @@ const DebtCollectionTable = () => {
     {
       field: 'receivedDate',
       headerName: 'Дата получения',
-      width: 140,
+      width: 130,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -214,8 +356,10 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActType',
       headerName: 'Вид судебного акта',
-      width: 180,
+      width: 170,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <SelectCell
           value={params.value}
@@ -235,8 +379,10 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActNumber',
       headerName: 'Номер судебного акта',
-      width: 160,
+      width: 150,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <TextCell
           value={params.value}
@@ -248,8 +394,10 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActDate',
       headerName: 'Дата судебного акта',
-      width: 150,
+      width: 140,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -261,8 +409,10 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActEffectiveDate',
       headerName: 'Дата вступления в силу',
-      width: 170,
+      width: 160,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -274,8 +424,10 @@ const DebtCollectionTable = () => {
     {
       field: 'courtActSentDate',
       headerName: 'Дата направления акта',
-      width: 160,
+      width: 150,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <DateCell
           value={params.value}
@@ -287,8 +439,10 @@ const DebtCollectionTable = () => {
     {
       field: 'caseReference',
       headerName: 'Ссылка на дело',
-      width: 150,
+      width: 140,
       editable: true,
+      headerAlign: 'center',
+      align: 'center',
       renderCell: (params) => (
         <TextCell
           value={params.value}
@@ -300,8 +454,6 @@ const DebtCollectionTable = () => {
     },
   ];
 
-  return (
-    <Paper elevation={2} sx={{ p: 3, minHeight: '80vh' }}>
       <Box sx={{ mb: 3 }}>
         <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
           Заявления о взыскании задолженности

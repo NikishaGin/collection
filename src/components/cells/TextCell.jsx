@@ -30,10 +30,11 @@ const TextCell = ({ value, onChange, error, placeholder }) => {
         display: 'flex', 
         alignItems: 'center', 
         width: '100%',
+        minHeight: 32,
         ...(error && {
-          backgroundColor: '#ffebee',
+          backgroundColor: '#fef2f2',
           borderRadius: 1,
-          border: '1px solid #f44336',
+          border: '1px solid #fecaca',
         })
       }}
     >
@@ -47,12 +48,15 @@ const TextCell = ({ value, onChange, error, placeholder }) => {
         fullWidth
         InputProps={{
           disableUnderline: true,
-          startAdornment: isUrl && <Link fontSize="small" sx={{ mr: 0.5, color: 'primary.main' }} />,
+          startAdornment: isUrl && <Link sx={{ fontSize: '1rem', mr: 0.5, color: 'primary.main' }} />,
         }}
         sx={{
           '& .MuiInputBase-input': {
             padding: '4px 8px',
-            fontSize: '0.875rem',
+            fontSize: '0.8125rem',
+            ...(isUrl && {
+              fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, monospace',
+            }),
           },
         }}
       />
@@ -60,9 +64,12 @@ const TextCell = ({ value, onChange, error, placeholder }) => {
         <IconButton
           size="small"
           onClick={handleClear}
-          sx={{ p: 0.5 }}
+          sx={{ 
+            p: 0.5,
+            '&:hover': { bgcolor: 'action.hover' }
+          }}
         >
-          <Clear fontSize="small" />
+          <Clear sx={{ fontSize: '1rem', color: 'text.secondary' }} />
         </IconButton>
       )}
     </Box>
